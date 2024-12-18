@@ -3,7 +3,7 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd" 
              version="3.0">
     <persistence-unit name="my-persistence-unit">
-        <class>com.tomus.jpa.hibernate.entities.MyEntity</class>
+        <class>br.tomus.jpa_hibernate.entities.Aluno</class>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/JPAHibernate"/>
