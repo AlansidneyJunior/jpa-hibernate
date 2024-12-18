@@ -1,22 +1,20 @@
 package br.com.tomus.jpa_hibernate;
 
+import br.com.tomus.jpa_hibernate.connection.ConnectionFactory;
 import br.com.tomus.jpa_hibernate.entities.Aluno;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 
 public class JPAHibernate {
 
 	public static void main(String[] args) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-persistence-unit");
-		EntityManager em = emf.createEntityManager();
+		EntityManager em = new ConnectionFactory().getConnection();
 		
 		em.getTransaction().begin();
 		
 		Aluno aluno = new Aluno();
-		aluno.setCpf("987654321-00");
-		aluno.setIdade(24);
-		aluno.setNome("Alansidney Junior");
+		aluno.setCpf("123789456-44");
+		aluno.setIdade(23);
+		aluno.setNome("Henrique Campos");
 		
 		em.persist(aluno);
 		
@@ -25,7 +23,7 @@ public class JPAHibernate {
 		System.out.println("Commit aluno...");
 		
 		em.close();
-		emf.close();
+	
 		
 	}	
 
