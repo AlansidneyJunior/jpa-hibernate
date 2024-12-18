@@ -23,6 +23,14 @@ public class Aluno {
 	
 	private int idade;
 	
+	
+	public Aluno(String nome, String cpf, int idade) {
+		super();
+		this.nome = nome;
+		this.cpf = cpf;
+		this.idade = idade;
+	}
+	
 	public Long getId() {
 		return id;
 	}

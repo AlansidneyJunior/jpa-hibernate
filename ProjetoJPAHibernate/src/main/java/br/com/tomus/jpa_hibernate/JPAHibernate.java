@@ -12,16 +12,12 @@ public class JPAHibernate {
 		EntityManager em = new ConnectionFactory().getConnection();
 		AlunoDAO dao = new AlunoDAO();
 		
-		Aluno aluno = new Aluno();
-		aluno.setCpf("123789456-44");
-		aluno.setIdade(23);
-		aluno.setNome("Henrique Campos");
+		Aluno aluno = new Aluno("Henrique Valença", "456123789-85", 30);
 
 		dao.save(aluno);
 		
 		em.close();
 	
-		
 	}	
 
 }
