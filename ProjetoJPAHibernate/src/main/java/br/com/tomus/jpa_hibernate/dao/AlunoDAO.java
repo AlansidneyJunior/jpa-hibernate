@@ -1,5 +1,7 @@
 package br.com.tomus.jpa_hibernate.dao;
 
+import java.util.List;
+
 import br.com.tomus.jpa_hibernate.connection.ConnectionFactory;
 import br.com.tomus.jpa_hibernate.entities.Aluno;
 import jakarta.persistence.EntityManager;
@@ -70,4 +72,17 @@ public class AlunoDAO {
 		return alunoEncontrado;
 	}
 	
+	public List<Aluno> findAll(){
+		EntityManager em = new ConnectionFactory().getConnection();
+		List<Aluno> alunos = null;
+		
+		try {
+			alunos = em.createQuery("SELECT a FROM Aluno a", Aluno.class).getResultList();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			em.close();
+		}
+		return alunos;
+	}
 }
