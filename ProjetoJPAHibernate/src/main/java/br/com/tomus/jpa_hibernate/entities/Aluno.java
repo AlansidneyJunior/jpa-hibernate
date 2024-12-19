@@ -23,6 +23,8 @@ public class Aluno {
 	
 	private int idade;
 	
+	public Aluno() {
+	}
 	
 	public Aluno(String nome, String cpf, int idade) {
 		super();
@@ -55,6 +57,5 @@ public class Aluno {
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
-	
 	
 }
