@@ -10,12 +10,15 @@ public class NotaTest {
 		
 		NotaDAO notaDAO = new NotaDAO();
 		Aluno aluno = new Aluno();
-		Nota nota = new Nota("T1", 9.5);
+		Nota nota = new Nota();
 		
 		aluno.setId(252L);
+		nota.setId(1L);
+		nota.setTurma("T1");
+		nota.setNota(8.3);
 		nota.setAluno(aluno);
 		
-		notaDAO.save(nota);
+		notaDAO.update(nota);
 	}
 
 }
