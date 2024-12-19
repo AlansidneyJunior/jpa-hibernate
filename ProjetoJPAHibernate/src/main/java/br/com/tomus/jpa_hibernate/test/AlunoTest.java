@@ -1,11 +1,11 @@
-package br.com.tomus.jpa_hibernate;
+package br.com.tomus.jpa_hibernate.test;
 
 import java.util.List;
 
 import br.com.tomus.jpa_hibernate.dao.AlunoDAO;
 import br.com.tomus.jpa_hibernate.entities.Aluno;
 
-public class JPAHibernate {
+public class AlunoTest {
 
 	public static void main(String[] args) {
 		
