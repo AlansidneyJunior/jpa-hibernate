@@ -78,11 +78,31 @@ public class AlunoDAO {
 		
 		try {
 			alunos = em.createQuery("SELECT a FROM Aluno a", Aluno.class).getResultList();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			em.close();
 		}
 		return alunos;
+	}
+	
+	public Aluno remove(Long id){
+		EntityManager em = new ConnectionFactory().getConnection();
+		Aluno alunoRemovido = null;
+		
+		try {
+			alunoRemovido = em.find(Aluno.class, id);
+			
+			em.getTransaction().begin();
+			em.remove(alunoRemovido);
+			em.getTransaction().commit();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		
+		return alunoRemovido;
 	}
 }
