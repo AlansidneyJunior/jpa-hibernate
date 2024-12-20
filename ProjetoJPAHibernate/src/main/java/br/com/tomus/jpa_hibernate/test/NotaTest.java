@@ -12,9 +12,9 @@ public class NotaTest {
 		
 		NotaDAO notaDAO = new NotaDAO();
 //		Aluno aluno = new Aluno();
-//		Nota nota = new Nota();
+		Nota nota = new Nota();
 		
-		List<Nota> notas = notaDAO.findAll();
+//		List<Nota> notas = notaDAO.findAll();
 		
 //		aluno.setId(252L);
 //		nota.setId(1L);
@@ -24,14 +24,18 @@ public class NotaTest {
 		
 //		nota = notaDAO.findById(52L);
 //		System.out.println(nota.getTurma() + " " + nota.getAluno().getNome() + " " + nota.getNota());
-		System.out.println("----- Notas -----");
-		for(Nota nota : notas) {
-			
-			System.out.println("Aluno: " + nota.getAluno().getNome());
-			System.out.println("Turma: " + nota.getTurma());
-			System.out.println("Nota: " + nota.getNota());
-			System.out.println("----------");
-		}
+
+//		System.out.println("----- Notas -----");
+//		for(Nota nota : notas) {
+//			
+//			System.out.println("Aluno: " + nota.getAluno().getNome());
+//			System.out.println("Turma: " + nota.getTurma());
+//			System.out.println("Nota: " + nota.getNota());
+//			System.out.println("----------");
+//		}
+		nota = notaDAO.remove(52L);
+		System.out.println("NotaRemovida: " + nota.getNota());
+		
 	}
 
 }

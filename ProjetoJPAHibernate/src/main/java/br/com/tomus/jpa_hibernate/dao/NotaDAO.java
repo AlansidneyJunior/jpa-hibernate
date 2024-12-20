@@ -84,5 +84,23 @@ public class NotaDAO {
 			em.close();
 		}
 	}
-
+	
+	public Nota remove(Long id){
+		EntityManager em = new ConnectionFactory().getConnection();
+		Nota notaRemovida = null;
+		
+		try {
+			notaRemovida = em.find(Nota.class, id);
+			em.getTransaction().begin();
+			em.remove(notaRemovida);
+			em.getTransaction().commit();
+			
+			return notaRemovida;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			em.close();
+		}
+	}
 }
