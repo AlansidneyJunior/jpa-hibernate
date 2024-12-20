@@ -52,5 +52,20 @@ public class NotaDAO {
 	        em.close(); 
 	    }
 	}
+	
+	public Nota findById(Long id) {
+		EntityManager em = new ConnectionFactory().getConnection();
+		Nota notaEncontrada = null;
+		
+		try {
+			notaEncontrada = em.find(Nota.class, id);
+			return notaEncontrada;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			em.close();
+		}
+	}
 
 }
