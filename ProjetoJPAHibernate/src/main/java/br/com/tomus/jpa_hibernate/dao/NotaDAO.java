@@ -1,5 +1,7 @@
 package br.com.tomus.jpa_hibernate.dao;
 
+import java.util.List;
+
 import br.com.tomus.jpa_hibernate.connection.ConnectionFactory;
 import br.com.tomus.jpa_hibernate.entities.Nota;
 import jakarta.persistence.EntityManager;
@@ -64,6 +66,21 @@ public class NotaDAO {
 			e.printStackTrace();
 			return null;
 		}finally {
+			em.close();
+		}
+	}
+	
+	public List<Nota> findAll(){
+		EntityManager em = new ConnectionFactory().getConnection();
+		List<Nota> notas = null;
+		
+		try {
+			notas = em.createQuery("SELECT n FROM Nota n", Nota.class).getResultList();
+			return notas;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
 			em.close();
 		}
 	}
